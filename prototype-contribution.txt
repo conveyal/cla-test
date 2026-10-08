@@ -1,0 +1,1 @@
+Disposable contribution for testing current CLA coverage and automatic refresh.
