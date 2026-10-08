@@ -1,0 +1,6 @@
+{
+  "cla_root": ".",
+  "organization_name": "Conveyal LLC",
+  "ledger_blob": "https://github.com/conveyal/cla-test/blob/main",
+  "signing_url": "https://github.com/conveyal/cla-test/blob/main/README.md"
+}
