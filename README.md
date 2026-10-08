@@ -35,7 +35,19 @@ node /path/to/CLA-Ledger/sign.ts trevorgerhardt --id 776780 --individual --edito
 ```
 
 The validator is temporarily pinned to prototype commit
-`2995da1e28de199ae7c39766359149dbe28bbd2e`. Once ready, tooling release
+`03b792678f1c8dff9d93d855a5be172a47a0daa0`. Once ready, tooling release
 `v0.0.1` will replace that pin. Agreement version `v0.1` is separate.
 
 See [ATTRIBUTION.md](ATTRIBUTION.md) for the copied agreement's source and license.
+
+## Coverage and acceptance prototype
+
+A disposable contribution PR exercises the **Conveyal CLA** check on its own
+head commit. Before this repository accepts the contributor's fixture record,
+coverage fails and the workflow posts a personalized signing link. After a
+maintainer merges the fixture signature, **Refresh fixture coverage** requests
+a fresh evaluation automatically. The same head commit should then pass and
+the existing comment should report coverage.
+
+This fixture can refresh its own workflows with GITHUB_TOKEN. The real central
+ledger needs the scoped refresh App to dispatch workflows in R5.

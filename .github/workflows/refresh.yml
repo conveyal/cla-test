@@ -1,0 +1,41 @@
+name: Refresh fixture coverage
+
+on:
+  push:
+    branches: [main]
+    paths: ['signatures/**', 'versions/**']
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pull-requests: read
+  actions: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          repository: conveyal/CLA-Ledger
+          ref: 03b792678f1c8dff9d93d855a5be172a47a0daa0
+          path: .cla-ledger
+          persist-credentials: false
+      - uses: pnpm/setup@v3
+        with:
+          working-directory: .cla-ledger
+          install: false
+      - name: Request fresh evaluations after fixture acceptance
+        env:
+          # The fixture refreshes itself; the real ledger uses the scoped App token.
+          GH_TOKEN: ${{ github.token }}
+          DRY_RUN: ${{ inputs.dry_run || false }}
+        run: node .cla-ledger/.github/scripts/refresh_projects.ts

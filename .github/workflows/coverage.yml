@@ -1,0 +1,35 @@
+name: CLA coverage prototype
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Open PR number to evaluate afresh
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  check:
+    name: Check contributor coverage
+    uses: conveyal/CLA-Ledger/.github/workflows/check-contributors.yml@03b792678f1c8dff9d93d855a5be172a47a0daa0
+    with:
+      ledger_repository: conveyal/cla-test
+      ledger_data_ref: main
+      implementation_repository: conveyal/CLA-Ledger
+      implementation_ref: 03b792678f1c8dff9d93d855a5be172a47a0daa0
+      signing_url: https://github.com/conveyal/cla-test/blob/main/README.md
+      pr_number: ${{ inputs.pr_number || github.event.pull_request.number }}
+      personalized_signing_links: true
+      # This disposable repository is itself a ledger. R5 must leave this false.
+      signature_only_pr: true
+    permissions:
+      contents: read
+      pull-requests: write
+      checks: write
