@@ -35,7 +35,7 @@ node /path/to/CLA-Ledger/sign.ts trevorgerhardt --id 776780 --individual --edito
 ```
 
 The validator is temporarily pinned to prototype commit
-`03b792678f1c8dff9d93d855a5be172a47a0daa0`. Once ready, tooling release
+`v0.0.1`. Once ready, tooling release
 `v0.0.1` will replace that pin. Agreement version `v0.1` is separate.
 
 See [ATTRIBUTION.md](ATTRIBUTION.md) for the copied agreement's source and license.

@@ -18,12 +18,12 @@ permissions:
 jobs:
   check:
     name: Check contributor coverage
-    uses: conveyal/CLA-Ledger/.github/workflows/check-contributors.yml@03b792678f1c8dff9d93d855a5be172a47a0daa0
+    uses: conveyal/CLA-Ledger/.github/workflows/check-contributors.yml@v0.0.1
     with:
       ledger_repository: conveyal/cla-test
       ledger_data_ref: main
       implementation_repository: conveyal/CLA-Ledger
-      implementation_ref: 03b792678f1c8dff9d93d855a5be172a47a0daa0
+      implementation_ref: v0.0.1
       signing_url: https://github.com/conveyal/cla-test/blob/main/README.md
       pr_number: ${{ inputs.pr_number || github.event.pull_request.number }}
       personalized_signing_links: true

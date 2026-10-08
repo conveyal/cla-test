@@ -11,12 +11,12 @@ permissions:
 jobs:
   signature:
     name: Validate test signature
-    # Prototype pin; replace with v0.0.1 after the tested implementation is released.
-    uses: conveyal/CLA-Ledger/.github/workflows/validate-signature.yml@2995da1e28de199ae7c39766359149dbe28bbd2e
+    # Keep the reusable workflow and implementation on the same immutable release.
+    uses: conveyal/CLA-Ledger/.github/workflows/validate-signature.yml@v0.0.1
     with:
       cla_root: .
       implementation_repository: conveyal/CLA-Ledger
-      implementation_ref: 2995da1e28de199ae7c39766359149dbe28bbd2e
+      implementation_ref: v0.0.1
     permissions:
       contents: read
       pull-requests: write
