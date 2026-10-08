@@ -1,12 +1,6 @@
-# Test fixture — no CLA acceptance
+# Test only: no CLA acceptance
 
-This disposable fixture tests the GitHub editor and signature validator.
-Opening or merging a PR in conveyal/cla-test does not sign the Conveyal CLA.
-Only the real conveyal/CLA-Ledger accepts real signature records.
-
-Formatting probe: Unicode ✓; literal +, &, #, and %; preserve blank lines.
-
----
+Probe: ✓ + & # %
 
 # Conveyal Contributor License Agreement (v0.1 — provisional)
 
